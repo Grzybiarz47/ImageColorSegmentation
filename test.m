@@ -1,10 +1,6 @@
-[x, y] = generatePoints(300, 300, 2.5, 1.0);
+clear; clc;
 
-% format of ConnectivityList is three indexes of (x, y) points that make a
-% triangle
+im = double(imread('rose.jpg')) / 255;
 
-% trzebaby wyodrebnic kazdy trojkat zeby policzyc jego sredni kolor
-% a potem go nim wypelnic
-
-dt = delaunayTriangulation(x, y);
-triplot(dt.ConnectivityList, x, y);
+tim = triangulate(im, 3.0, 1.0);
+imshow(tim);
