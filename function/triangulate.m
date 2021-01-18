@@ -30,7 +30,14 @@ function res_im = triangulate(im, treshold, borderTresholdShift)
         blueval = mean(blue(mask(miny:maxy, minx:maxx)));
         
         colors(i, :) = [redval, greenval, blueval];
-        labels(mask) = i;
+       
+        for x = minx:maxx
+            for y = miny:maxy
+                if mask(y, x)
+                    labels(y, x) = i;
+                end
+            end
+        end
     end
     
     res_im = zeros(height, width, 3);
