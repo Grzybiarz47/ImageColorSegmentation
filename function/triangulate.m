@@ -1,4 +1,4 @@
-function res_im = triangulate(im, treshold, borderTresholdShift)
+function res_im = triangulate(im, treshold, borderTresholdShift, borders)
     [height, width, ~] = size(im);
     [yvals, xvals] = generatePoints(height, width, treshold, borderTresholdShift);
     vertices = delaunay(xvals, yvals);
@@ -48,6 +48,19 @@ function res_im = triangulate(im, treshold, borderTresholdShift)
                 res_im(y, x, :) = colors(index, :);
             end
         end
+    end
+
+    if borders
+        figure('visible','off', 'Position', [0 0 width/2 height/2]);
+        imagesc([0 width], [0 height], res_im);
+        hold on;
+        triplot(vertices, yvals, xvals, 'k');
+        set(gca,'XTick',[], 'YTick', []);
+        hold off;
+        
+        exportgraphics(gca, 'fig.png', 'Resolution', 300);
+        close all;
+        res_im = double(imread('fig.png')) / 255;
     end
 end
 
