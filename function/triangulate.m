@@ -4,10 +4,8 @@ function res_im = triangulate(im, treshold, borderTresholdShift, borders)
     vertices = delaunay(xvals, yvals);
 
     points = [yvals, xvals];
-    labels = zeros(height, width);
     trianglesCount = size(vertices, 1);
-
-    colors = zeros(trianglesCount, 3);
+    res_im = zeros(height, width, 3);
 
     for i = 1:trianglesCount
         [p1, p2, p3] = getTrianglePoints(vertices(i, :), points);
@@ -29,26 +27,15 @@ function res_im = triangulate(im, treshold, borderTresholdShift, borders)
         greenval = mean(green(mask(miny:maxy, minx:maxx)));
         blueval = mean(blue(mask(miny:maxy, minx:maxx)));
         
-        colors(i, :) = [redval, greenval, blueval];
-       
         for x = minx:maxx
             for y = miny:maxy
-                if mask(y, x)
-                    labels(y, x) = i;
+                if (mask(y, x))
+                    res_im(y, x, :) = [redval, greenval, blueval];
                 end
             end
         end
     end
     
-    res_im = zeros(height, width, 3);
-    for x = 1:width
-        for y = 1:height
-            index = labels(y, x);
-            if index ~= 0
-                res_im(y, x, :) = colors(index, :);
-            end
-        end
-    end
 
     if borders
         figure('visible','off', 'Position', [0 0 width/2 height/2]);
