@@ -36,7 +36,6 @@ function res_im = triangulate(im, treshold, borderTresholdShift, borders)
         end
     end
     
-
     if borders
         figure('visible','off', 'Position', [0 0 width/2 height/2]);
         imagesc([0 width], [0 height], res_im);
@@ -48,6 +47,7 @@ function res_im = triangulate(im, treshold, borderTresholdShift, borders)
         exportgraphics(gca, 'fig.png', 'Resolution', 300);
         close all;
         res_im = double(imread('fig.png')) / 255;
+        delete 'fig.png';
     end
 end
 
