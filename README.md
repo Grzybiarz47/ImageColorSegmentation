@@ -142,3 +142,21 @@ Podział pracy
 -   Jan Zajda:\
     Interfejs graficzny, poprawa wydajności segmentacji.
 
+Przykłady
+=============
+
+Format jpg
+--------------------------
+
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex0.jpg)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex1.jpg)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex2.jpg)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex00.jpg)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex01.jpg)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex02.jpg)
+
+Format png
+--------------------------
+
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex000.png)
+![alt text](https://github.com/Grzybiarz47/ImageColorSegmentation/blob/master/pictures/ex001.png)
